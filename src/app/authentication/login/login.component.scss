@@ -149,3 +149,53 @@ label{
   cursor: pointer;
   font-weight: 600;
 }
+
+@media(max-width: 1024px){
+  .login-container{
+    width: 100%;
+  }
+  .right-side-container{
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
+  .left-side-container{
+    width: 50%;
+  }
+  .email-container, .password-container, .login-button{
+    width: 80%;
+  }
+}
+
+@media(max-width: 480px){
+  .login-container{
+    width: 100%;
+  }
+  .right-side-container{
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+  }
+  .left-side-container{
+    width: 30%;
+  }
+  .email-container, .password-container, .login-button{
+    width: 90%;
+  }
+  .ellipse, .double-ellipse{
+    width: 60%;
+  }
+  .logo{
+    width: 95%;
+  }
+  .remember-me, .forgot-password, .not-registered{
+    font-size: 0.75rem;
+  }
+  .symbol{
+    height: 50px;
+    width: 50px;
+    top: 12%;
+    left: 8%;
+  }
+}
+
