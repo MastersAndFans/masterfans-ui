@@ -1,0 +1,151 @@
+.container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  font-family: sans-serif;
+}
+
+.left-side-container {
+  width: 60%;
+  background-color: #EFD0B3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.right-side-container{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.logo{
+  width: 100%;
+  max-width: max-content;
+}
+
+.ellipse{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.double-ellipse{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.login-text-container{
+  margin-inline: auto;
+  margin-top: 20%;
+}
+
+.symbol{
+  height: 72px;
+  width: 72px;
+  position: absolute;
+  top: 14%;
+  left: 10%;
+}
+
+h2, span{
+  color: #525252;
+}
+
+h2{
+  font-size: 2rem;
+  margin: 0 0 0.625rem 0;
+}
+
+.login-container{
+  margin-top: 18%;
+}
+
+.email-container, .password-container{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-inline: auto;
+}
+
+.email-container{
+  margin-bottom: 1rem;
+}
+
+label{
+  color: #828282;
+  margin-bottom: 0.5rem;
+}
+
+.login-field{
+  border-radius: 5px;
+  height: 30px;
+  border: 1.2px solid #DED2D9;
+  font-size: 1rem;
+  padding-left: 0.625rem;
+}
+
+.login-field:focus{
+  outline: none;
+}
+
+.checkbox{
+  height: 1rem;
+  width: 1rem;
+  accent-color: #A56024;
+  border: 1px solid #DED2D9;
+}
+
+.check-container{
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+}
+
+.remember-me{
+  color: #A1A1A1;
+  margin: 0 0 0 0.5rem;
+}
+
+.password-texts{
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.forgot-password{
+  color: #A56024;
+  cursor: pointer;
+}
+
+.button-container{
+  margin-top: 2rem;
+  display: flex;
+}
+
+.login-button{
+  margin-inline: auto;
+  width: 50%;
+  color: #ffffff;
+  border: none;
+  background-color: #A56024;
+  border-radius: 5px;
+  height: 40px;
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+
+.not-registered{
+  margin-top: 4rem;
+  margin-inline: auto;
+  color: #828282;
+}
+
+.marked{
+  color: #A56024;
+  cursor: pointer;
+  font-weight: 600;
+}
