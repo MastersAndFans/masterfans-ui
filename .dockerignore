@@ -1,0 +1,13 @@
+# Node modules
+node_modules/
+
+# Build outputs
+dist/
+
+# Various configuration files and directories
+.angular/
+.vscode/
+.git/
+.gitignore
+.editorconfig
+README.md
