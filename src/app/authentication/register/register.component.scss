@@ -1,0 +1,146 @@
+.container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  font-family: sans-serif;
+}
+
+.left-side-container{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.right-side-container{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.bright-background, .dark-background{
+  height: 80%;
+  width: 60%;
+  border-radius: 0 0 100px 100px;
+}
+
+.bright-background{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #EFD0B3;
+  position: relative;
+}
+
+.circle{
+  position: absolute;
+  top: -10%;
+  left: 2%;
+}
+
+.dark-background{
+  background-color: #874B15;
+  position: absolute;
+  z-index: -1;
+  left: 8%;
+  top: -10%;
+  rotate: -5deg;
+}
+
+.hammer{
+  width: 70%;
+  height: 70%;
+}
+
+.register-container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 40%;
+}
+
+form{
+  margin-top: 2rem;
+}
+
+
+h1, span{
+  color: #525252;
+}
+h1{
+  margin-top: 7rem;
+}
+
+.full-length, .half-length{
+  border-radius: 5px;
+  height: 40px;
+  border: 1.2px solid #DED2D9;
+  font-size: 1rem;
+  margin: 0.75rem 0;
+  text-indent: 0.625rem;
+  box-sizing: border-box;
+}
+
+.full-length{
+  width: 100%;
+}
+
+.half-length{
+  width: 48%;
+}
+
+.half-length-right{
+  float: right;
+}
+
+::placeholder{
+  color: #A0A0A0;
+}
+
+.full-length:focus, .half-length:focus, .date{
+  outline: none;
+}
+
+.date{
+  text-indent: 0.325rem;
+}
+
+::-webkit-calendar-picker-indicator {
+  opacity: 0.3;
+}
+
+.checkbox{
+  height: 1rem;
+  width: 1rem;
+  accent-color: #A56024;
+  border: 1px solid #DED2D9;
+}
+
+.checkbox-container{
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+}
+
+.register-button{
+  width: 100%;
+  color: #ffffff;
+  border: none;
+  background-color: #A56024;
+  border-radius: 5px;
+  height: 40px;
+  font-size: 1.125rem;
+  cursor: pointer;
+  margin-top: 2rem;
+}
+
+.login{
+  color: #A56024;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.have-account{
+  color: #828282;
+  margin-top: 2rem;
+}

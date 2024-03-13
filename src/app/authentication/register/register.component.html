@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="left-side-container">
+    <div class="register-container">
+      <h1>Registracija</h1>
+      <span>Greita ir paprasta</span>
+      <form [formGroup]="registerForm">
+        <input placeholder="Vardas" class="half-length" type="text" formControlName="firstName">
+        <input placeholder="Pavardė" class="half-length half-length-right" type="text" formControlName="lastName">
+        <input placeholder="El.paštas" class="full-length" type="text" formControlName="email">
+        <input placeholder="Slaptažodis" class="full-length" type="password" formControlName="password">
+        <input placeholder="Pakartoti slaptažodį" class="full-length" type="password" formControlName="repeatPassword">
+        <input class="full-length date" type="date" formControlName="birthDate">
+        <input placeholder="Telefono numeris (neprivalomas)" class="full-length" type="text" formControlName="phoneNumber">
+        <div class="checkbox-container">
+          <span>Meistras</span>
+          <input class="checkbox" type="checkbox" formControlName="master">
+        </div>
+      </form>
+      <button class="register-button" (click)="onSubmit()">Registruotis</button>
+      <span class="have-account">Turi paskyra? <span class="login" (click)="redirectToLogin()">Prisijunk</span></span>
+    </div>
+  </div>
+  <div class="right-side-container">
+    <div class="bright-background">
+      <img class="circle" src="assets/circle.png"/>
+      <img class="hammer" src="assets/Hammer.png"/>
+    </div>
+    <div class="dark-background"></div>
+  </div>
+</div>
