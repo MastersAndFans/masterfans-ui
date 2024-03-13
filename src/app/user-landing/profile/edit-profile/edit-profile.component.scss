@@ -1,0 +1,66 @@
+.container{
+  background-color: #FFE9D5;
+  height: 100%;
+  display: flex;
+  font-family: sans-serif;
+}
+
+.edit-profile-container{
+  background-color: #ffffff;
+  width: 80%;
+  height: 50rem;
+  margin-top: 5rem;
+  border-radius: 10px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+h2{
+  margin-left: 4rem;
+}
+
+.horizontal-line{
+  border-bottom: 0.5px solid #A0A0A0;;
+  width: 100%;
+}
+
+.profile-picture-container, .names-container, .phone-container, .password-container{
+  display: flex;
+  align-items: center;
+  margin-block: 1rem;
+}
+
+img{
+  width: 6rem;
+  height: 6rem;
+  border-radius: 5px;
+}
+
+span{
+  margin-left: 14rem;
+  width: 14rem;
+  color: #5A5A5A;
+}
+
+p{
+  color: #D39252;
+  text-align: center;
+  margin: 0;
+  cursor: pointer;
+}
+
+.name{
+  margin-right: 1rem;
+}
+
+.password-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: normal;
+}
+.password{
+  display: flex;
+  margin: 1rem 0;
+}
