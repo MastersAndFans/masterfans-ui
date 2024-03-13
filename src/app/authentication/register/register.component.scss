@@ -103,6 +103,7 @@ h1{
 
 .date{
   text-indent: 0.325rem;
+  margin-top: 0;
 }
 
 ::-webkit-calendar-picker-indicator {
@@ -143,4 +144,34 @@ h1{
 .have-account{
   color: #828282;
   margin-top: 2rem;
+}
+
+label{
+  color: #828282;
+  font-size: 0.75rem;
+}
+
+@media(max-width: 1024px){
+  .register-container{
+    width: 80%;
+  }
+  .hammer{
+    width: 70%;
+    height: 60%;
+  }
+  .bright-background, .dark-background{
+    width: 70%;
+  }
+  .dark-background{
+    left: 5%;
+  }
+}
+
+@media(max-width: 480px){
+  .right-side-container{
+    display: none;
+  }
+  .left-side-container{
+    width: 100%;
+  }
 }
