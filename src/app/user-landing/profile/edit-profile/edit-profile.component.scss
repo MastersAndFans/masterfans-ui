@@ -1,6 +1,6 @@
 .container{
   background-color: #FFE9D5;
-  height: 100%;
+  height: auto;
   display: flex;
   font-family: sans-serif;
 }
@@ -8,12 +8,12 @@
 .edit-profile-container{
   background-color: #ffffff;
   width: 80%;
-  height: 50rem;
   margin-top: 5rem;
   border-radius: 10px;
   margin-inline: auto;
   display: flex;
   flex-direction: column;
+  margin-bottom: 5rem;
 }
 
 h2{
@@ -25,7 +25,7 @@ h2{
   width: 100%;
 }
 
-.profile-picture-container, .names-container, .phone-container, .password-container{
+.profile-picture-container, .names-container, .phone-container, .password-container, .services-container, .schedule-container{
   display: flex;
   align-items: center;
   margin-block: 1rem;
@@ -63,4 +63,132 @@ p{
 .password{
   display: flex;
   margin: 1rem 0;
+}
+
+.service{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.price-container{
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.price-per-hour{
+  margin-block: auto;
+  margin-left: 0.25rem;
+  color: #000000;
+  font-weight: bold;
+}
+
+input:focus{
+  outline: none;
+}
+
+.price{
+  width: 20%;
+}
+
+.close, .add{
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.day{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a{
+  margin-bottom: 0.5rem;
+  font-weight: bolder;
+  letter-spacing: 1px;
+}
+
+.schedule{
+  display: flex;
+}
+
+.day-input{
+  width: 60%;
+  height: 50px;
+}
+
+.action-buttons{
+  margin: 2rem 6rem 2rem auto;
+}
+
+.cancel{
+  margin-inline: 2rem;
+  background-color: #E4E6EB;
+}
+
+.save, .cancel{
+  border: none;
+  border-radius: 5px;
+  height: 36px;
+  font-weight: bold;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.save{
+  background-color: #A56024;
+  color: #ffffff;
+  width: 120px;
+}
+
+@media(max-width: 1024px) {
+  span{
+    margin-left: 1rem;
+    width: 10rem;
+    color: #5A5A5A;
+  }
+  .name{
+    margin-bottom: 0.5rem;
+  }
+
+  .services-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .services-text{
+    margin-bottom: 1rem;
+  }
+  .add{
+    margin-top: 2rem;
+  }
+
+  .schedule-container, .schedule{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .schedule{
+    text-align: center;
+  }
+
+  .schedule-text{
+    text-align: center;
+    margin-inline: auto;
+    margin-bottom: 2rem;
+  }
+  .day{
+    margin-bottom: 2rem;
+  }
+  .action-buttons{
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+  }
+  h2{
+    text-align: center;
+    margin: 1rem 0;
+  }
 }

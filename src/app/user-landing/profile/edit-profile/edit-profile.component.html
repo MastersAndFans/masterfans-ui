@@ -12,8 +12,10 @@
     <div class="horizontal-line"></div>
     <div class="names-container">
       <span>Vardas ir pavardė</span>
+      <div class="names-text-container">
       <input class="name" type="text">
       <input type="text">
+      </div>
     </div>
     <div class="horizontal-line"></div>
     <div class="phone-container">
@@ -36,5 +38,39 @@
       </div>
     </div>
     <div class="horizontal-line"></div>
+    <div class="services-container">
+      <span class="services-text">Paslaugos ir kainos</span>
+      <div class="service">
+        <input type="text">
+        <div class="price-container">
+          <input class="price" type="number">
+          <p class="price-per-hour">€/h</p>
+        </div>
+        <img class="close" src="assets/close.png">
+      </div>
+      <div class="service">
+        <input type="text">
+        <div class="price-container">
+          <input class="price" type="number">
+          <p class="price-per-hour">€/h</p>
+        </div>
+        <img class="close" src="assets/close.png">
+      </div>
+      <img class="add" src="assets/add.png">
+    </div>
+    <div class="horizontal-line"></div>
+    <div class="schedule-container">
+      <span class="schedule-text">Tvarkaraštis</span>
+      <div class="schedule">
+        <div class="day" *ngFor="let day of days">
+          <a>{{day}}</a>
+          <textarea class="day-input"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="action-buttons">
+      <button class="cancel" (click)="redirectToProfile(false)">Atšaukti</button>
+      <button class="save" (click)="redirectToProfile(true)">Išsaugoti</button>
+    </div>
   </div>
 </div>
