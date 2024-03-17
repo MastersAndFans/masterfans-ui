@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import {LoginComponent} from "./login/login.component";
 import { RegisterComponent } from './register/register.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AuthenticationService} from "./authentication-service";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -14,6 +16,10 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
+  ],
+  providers: [
+    AuthenticationService
   ]
 })
 export class AuthenticationModule { }

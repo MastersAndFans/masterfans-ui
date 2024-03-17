@@ -4,17 +4,17 @@
       <h1>Registracija</h1>
       <span>Greita ir paprasta</span>
       <form [formGroup]="registerForm">
-        <input placeholder="Vardas" class="half-length" type="text" formControlName="firstName">
-        <input placeholder="Pavardė" class="half-length half-length-right" type="text" formControlName="lastName">
+        <input placeholder="Vardas" class="half-length" type="text" formControlName="name">
+        <input placeholder="Pavardė" class="half-length half-length-right" type="text" formControlName="surname">
         <input placeholder="El.paštas" class="full-length" type="text" formControlName="email">
         <input placeholder="Slaptažodis" class="full-length" type="password" formControlName="password">
         <input placeholder="Pakartoti slaptažodį" class="full-length" type="password" formControlName="repeatPassword">
         <label>Gimimo data</label>
-        <input class="full-length date" type="date" formControlName="birthDate">
-        <input placeholder="Telefono numeris (neprivalomas)" class="full-length" type="text" formControlName="phoneNumber">
+        <input class="full-length date" type="date" formControlName="birth-date">
+        <input placeholder="Telefono numeris (neprivalomas)" class="full-length" type="text" formControlName="phone-number">
         <div class="checkbox-container">
           <span>Meistras</span>
-          <input class="checkbox" type="checkbox" formControlName="master">
+          <input class="checkbox" type="checkbox" formControlName="is_master">
         </div>
       </form>
       <button class="register-button" (click)="onSubmit()">Registruotis</button>
