@@ -6,18 +6,48 @@
       <form [formGroup]="registerForm">
         <input placeholder="Vardas" class="half-length" type="text" formControlName="name">
         <input placeholder="Pavardė" class="half-length half-length-right" type="text" formControlName="surname">
+        <span *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+          <span *ngIf="name?.errors?.['required']" class="error-message">Vardas yra privalomas laukas</span>
+          <span *ngIf="name?.errors?.['minlength']" class="error-message">Vardas turi būti bent iš 2 simbolių</span>
+          <span *ngIf="name?.errors?.['maxlength']" class="error-message">Vardas negali viršyti 50 simbolių</span>
+        </span>
+        <span *ngIf="surname?.invalid && (surname?.dirty || surname?.touched)">
+          <br>
+          <span *ngIf="surname?.errors?.['required']" class="error-message">Pavardė yra privalomas laukas</span>
+          <span *ngIf="surname?.errors?.['minlength']" class="error-message">Pavardė turi būti bent iš 2 simbolių</span>
+          <span *ngIf="surname?.errors?.['maxlength']" class="error-message">Pavardė negali viršyti 50 simbolių</span>
+        </span>
         <input placeholder="El.paštas" class="full-length" type="text" formControlName="email">
+        <span *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+          <span *ngIf="email?.errors?.['required']" class="error-message">El.paštas yra privalomas laukas</span>
+          <span *ngIf="email?.errors?.['pattern']" class="error-message">El.paštas neatitinka šablono</span>
+        </span>
         <input placeholder="Slaptažodis" class="full-length" type="password" formControlName="password">
-        <input placeholder="Pakartoti slaptažodį" class="full-length" type="password" formControlName="repeatPassword">
+        <span *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+          <br>
+          <span *ngIf="password?.errors?.['required']" class="error-message">Slaptažodis yra privalomas laukas</span>
+          <span *ngIf="password?.errors?.['minlength']" class="error-message">Slaptažodis turi būti bent iš 8 simbolių</span>
+        </span>
+        <input placeholder="Pakartoti slaptažodį" class="full-length" type="password" formControlName="repeat_password">
+        <span *ngIf="repeat_password?.invalid && (repeat_password?.dirty || repeat_password?.touched)">
+          <br>
+          <span *ngIf="repeat_password?.errors?.['required']" class="error-message">Pakartoti slaptažodį yra privalomas laukas</span>
+          <span *ngIf="repeat_password?.errors?.['minlength']" class="error-message">Slaptažodis turi būti bent iš 8 simbolių</span>
+          <br>
+        </span>
+        <span *ngIf="!passwordMatch" class="error-message">Slaptažodžiai turi sutapti</span>
+        <br>
         <label>Gimimo data</label>
-        <input class="full-length date" type="date" formControlName="birth-date">
-        <input placeholder="Telefono numeris (neprivalomas)" class="full-length" type="text" formControlName="phone-number">
+        <input class="full-length date" type="date" formControlName="birth_date">
+        <span *ngIf="birth_date?.invalid && (birth_date?.dirty || birth_date?.touched)" class="error-message">Gimimo data yra privalomas laukas</span>
+        <span *ngIf="!ageAbove13" class="error-message">Naudotis aplikacija galima tik nuo 13 metų</span>
+        <input placeholder="Telefono numeris (neprivalomas)" class="full-length" type="text" formControlName="phone_number">
         <div class="checkbox-container">
           <span>Meistras</span>
           <input class="checkbox" type="checkbox" formControlName="is_master">
         </div>
       </form>
-      <button class="register-button" (click)="onSubmit()">Registruotis</button>
+      <button class="register-button" (click)="onSubmit()" [disabled]="!registerForm.valid">Registruotis</button>
       <span class="have-account">Turi paskyra? <span class="login" (click)="redirectToLogin()">Prisijunk</span></span>
     </div>
   </div>
