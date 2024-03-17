@@ -133,6 +133,10 @@ h1{
   font-size: 1.125rem;
   cursor: pointer;
   margin-top: 2rem;
+  &:disabled{
+    cursor: not-allowed;
+    background-color: #888888;
+  }
 }
 
 .login{
@@ -148,6 +152,11 @@ h1{
 
 label{
   color: #828282;
+  font-size: 0.75rem;
+}
+
+.error-message{
+  color: red;
   font-size: 0.75rem;
 }
 
