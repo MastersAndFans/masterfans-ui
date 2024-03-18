@@ -150,6 +150,11 @@ label{
   font-weight: 600;
 }
 
+.error-message{
+  color: red;
+  font-size: 0.75rem;
+}
+
 @media(max-width: 1024px){
   .login-container{
     width: 100%;
