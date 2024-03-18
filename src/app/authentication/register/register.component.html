@@ -7,6 +7,7 @@
         <input placeholder="Vardas" class="half-length" type="text" formControlName="name">
         <input placeholder="Pavardė" class="half-length half-length-right" type="text" formControlName="surname">
         <span *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+          <br>
           <span *ngIf="name?.errors?.['required']" class="error-message">Vardas yra privalomas laukas</span>
           <span *ngIf="name?.errors?.['minlength']" class="error-message">Vardas turi būti bent iš 2 simbolių</span>
           <span *ngIf="name?.errors?.['maxlength']" class="error-message">Vardas negali viršyti 50 simbolių</span>
@@ -21,6 +22,7 @@
         <span *ngIf="email?.invalid && (email?.dirty || email?.touched)">
           <span *ngIf="email?.errors?.['required']" class="error-message">El.paštas yra privalomas laukas</span>
           <span *ngIf="email?.errors?.['pattern']" class="error-message">El.paštas neatitinka šablono</span>
+          <span *ngIf="email?.errors?.['emailAlreadyExist']" class="error-message">Su tokiu el.paštu paskyra jau egzistuoja</span>
         </span>
         <input placeholder="Slaptažodis" class="full-length" type="password" formControlName="password">
         <span *ngIf="password?.invalid && (password?.dirty || password?.touched)">

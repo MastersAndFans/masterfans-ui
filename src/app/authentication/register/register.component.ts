@@ -68,7 +68,12 @@ export class RegisterComponent {
     if(this.passwordMatch && this.ageAbove13){
       this.auth.RegisterUser(this.registerForm.value).subscribe({
         next: next => this.router.navigate(['/']),
-        error: err => {console.log(err)}
+        error: err => {
+          if (err.status === 400){
+            this.registerForm.controls["email"].setErrors({'incorrect': true});
+            this.registerForm.controls["email"].setErrors({"emailAlreadyExist": true});
+          }
+        }
       });
     }
   }

@@ -13,14 +13,20 @@
 
     <div class="login-container">
 
+      <form [formGroup]="loginForm">
       <div class="email-container">
         <label>El. paštas</label>
-        <input class="login-field" type="text">
+        <input class="login-field" type="text" formControlName="email">
+        <span *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="error-message">El.paštas yra privalomas laukas</span>
       </div>
 
       <div class="password-container">
         <label>Slaptažodis</label>
-        <input class="login-field" type="text">
+        <input class="login-field" type="password" formControlName="password">
+        <span *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="error-message">
+          <span *ngIf="password?.errors?.['required']" class="error-message">Slaptažodis yra privalomas laukas</span>
+          <span *ngIf="password?.errors?.['invalidCredentials']" class="error-message">El.paštas ar slaptažodis yra klaidingas</span>
+        </span>
         <div class="password-texts">
         <div class="check-container">
           <input class="checkbox" type="checkbox">
@@ -31,9 +37,9 @@
       </div>
 
       <div class="button-container">
-        <button class="login-button">Prisijungti</button>
+        <button class="login-button" [disabled]="!loginForm.valid" (click)="onSubmit()">Prisijungti</button>
       </div>
-
+      </form>
     </div>
 
     <span class="not-registered">Neužsiregistravęs? <span class="marked" (click)="redirectToRegister()">Susikurk paskyrą čia</span></span>
