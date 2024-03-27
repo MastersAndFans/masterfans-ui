@@ -67,7 +67,7 @@ export class RegisterComponent {
     this.isDateValid();
     if(this.passwordMatch && this.ageAbove13){
       this.auth.RegisterUser(this.registerForm.value).subscribe({
-        next: next => this.router.navigate(['/']),
+        next: next => this.redirectToLogin(),
         error: err => {console.log(err)}
       });
     }
