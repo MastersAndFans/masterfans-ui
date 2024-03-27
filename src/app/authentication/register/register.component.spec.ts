@@ -52,7 +52,7 @@ describe('RegisterComponent', () => {
     expect(component.isDateValid).toHaveBeenCalled();
   });
 
-  it('should call auth.RegisterUser on form submission', () => {
+  it('register with correct credentials', () => {
     const mockForm = {
         name: 'Ignas',
         surname: 'Vizbaras',
@@ -61,7 +61,33 @@ describe('RegisterComponent', () => {
         repeat_password: 'vienasvienas',
         birth_date: '2005-12-12',
         phone_number: '',
-        is_master: false
+        is_master: true
+    }
+
+    const mockResponse = {success: true};
+
+    const authService = TestBed.inject(AuthenticationService);
+    spyOn(authService, 'RegisterUser').and.returnValue(of(mockResponse));
+    const redirectSpy = spyOn(component, 'redirectToLogin');
+
+    component.registerForm.setValue(mockForm);
+    component.onSubmit();
+
+    // @ts-ignore
+    expect(authService.RegisterUser).toHaveBeenCalledWith(mockForm);
+    expect(redirectSpy).toHaveBeenCalled();
+  });
+
+  it('register with incorrect age', () => {
+    const mockForm = {
+      name: 'Ignas',
+      surname: 'Vizbaras',
+      email: 'ignas@gmail.com',
+      password: 'vienasvienas',
+      repeat_password: 'vienasvienas',
+      birth_date: '2020-12-12',
+      phone_number: '',
+      is_master: false
     }
 
     const mockResponse = {success: true};
@@ -73,7 +99,7 @@ describe('RegisterComponent', () => {
     component.onSubmit();
 
     // @ts-ignore
-    expect(authService.RegisterUser).toHaveBeenCalledWith(mockForm);
+    expect(authService.RegisterUser).not.toHaveBeenCalledWith(mockForm);
   });
 
 
