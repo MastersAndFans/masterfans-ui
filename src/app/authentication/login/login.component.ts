@@ -10,7 +10,7 @@ import {AuthenticationService} from "../authentication-service";
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  constructor(private router: Router, private formBuilder: FormBuilder, private auth: AuthenticationService) {
+  constructor(public router: Router, private formBuilder: FormBuilder, private auth: AuthenticationService) {
     this.loginForm = this.formBuilder.group({
       email: [
         '', [Validators.required]
