@@ -67,18 +67,13 @@ export class RegisterComponent {
     this.isDateValid();
     if(this.passwordMatch && this.ageAbove13){
       this.auth.RegisterUser(this.registerForm.value).subscribe({
-<<<<<<< HEAD
-        next: next => this.router.navigate(['/']),
+        next: next => this.redirectToLogin(),
         error: err => {
           if (err.status === 400){
             this.registerForm.controls["email"].setErrors({'incorrect': true});
             this.registerForm.controls["email"].setErrors({"emailAlreadyExist": true});
           }
         }
-=======
-        next: next => this.redirectToLogin(),
-        error: err => {console.log(err)}
->>>>>>> user-register
       });
     }
   }
