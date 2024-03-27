@@ -9,8 +9,12 @@ import {AuthenticationService} from "../authentication-service";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  loginForm: FormGroup;
+  loginForm!: FormGroup;
   constructor(public router: Router, private formBuilder: FormBuilder, private auth: AuthenticationService) {
+    this.createLoginForm();
+  }
+
+  private createLoginForm(): void{
     this.loginForm = this.formBuilder.group({
       email: [
         '', [Validators.required]
@@ -38,8 +42,7 @@ export class LoginComponent {
       next: next => this.router.navigate(['/profile']),
       error: err => {
         if (err.status === 401){
-          this.loginForm.controls["password"].setErrors({'incorrect': true});
-          this.loginForm.controls["password"].setErrors({"invalidCredentials": true});
+          this.loginForm.controls["password"].setErrors({'incorrect': true, "invalidCredentials": true});
         }
       }
     });
