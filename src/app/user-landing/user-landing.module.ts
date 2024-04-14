@@ -5,6 +5,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { UserInfoComponent } from './profile/user-info/user-info.component';
 import { PostsComponent } from './profile/posts/posts.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
     ProfileComponent,
     UserInfoComponent,
     PostsComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
