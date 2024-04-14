@@ -39,7 +39,7 @@ export class LoginComponent {
 
   onSubmit(): void{
     this.auth.LoginUser(this.loginForm.value).subscribe({
-      next: next => this.router.navigate(['/profile']),
+      next: next => this.router.navigate(['/home']),
       error: err => {
         if (err.status === 401){
           this.loginForm.controls["password"].setErrors({'incorrect': true, "invalidCredentials": true});
