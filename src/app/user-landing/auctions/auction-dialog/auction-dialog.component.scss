@@ -1,5 +1,50 @@
 .container{
-  background-color: green;
-  width: 500px;
-  height: 500px;
+  background-color: #ffffff;
+  width: 600px;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2{
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.label-container{
+  display: flex;
+  flex-direction: column;
+  margin-block: 2rem;
+}
+
+.field{
+  border: none;
+  background-color: #F0F1F5;
+  border-radius: 5px;
+  height: 35px;
+  padding-left: 0.625rem;
+}
+
+.date-field{
+  margin-right: 0.5rem;
+}
+
+label{
+  margin-bottom: 0.5rem;
+}
+
+form{
+  width: 60%;
+}
+
+button{
+  height: 35px;
+  width: 140px;
+  border-radius: 5px;
+  background-color: #F1B32B;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  margin-left: 1rem;
 }

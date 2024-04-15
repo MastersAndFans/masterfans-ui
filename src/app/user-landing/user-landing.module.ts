@@ -10,6 +10,7 @@ import { AuctionsListComponent } from './auctions/auctions-list/auctions-list.co
 import {UserLandingRoutingModule} from "./user-landing-routing.module";
 import {MatDialogModule} from "@angular/material/dialog";
 import { AuctionDialogComponent } from './auctions/auction-dialog/auction-dialog.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -23,10 +24,11 @@ import { AuctionDialogComponent } from './auctions/auction-dialog/auction-dialog
     AuctionsListComponent,
     AuctionDialogComponent
   ],
-  imports: [
-    CommonModule,
-    UserLandingRoutingModule,
-    MatDialogModule
-  ]
+    imports: [
+        CommonModule,
+        UserLandingRoutingModule,
+        MatDialogModule,
+        ReactiveFormsModule
+    ]
 })
 export class UserLandingModule { }

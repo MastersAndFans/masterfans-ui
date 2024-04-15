@@ -1,3 +1,28 @@
 <div class="container">
-
+  <h2>Sukurti naują aukcioną</h2>
+  <form>
+    <label>Aukciono pabaigos data ir laikas</label>
+    <br>
+    <input class="field date-field" type="date">
+    <input class="field" type="time">
+    <div class="label-container">
+      <label>Maksimali kaina</label>
+      <input class="field" type="number">
+    </div>
+    <div class="label-container">
+      <label>Miestas</label>
+      <input class="field" type="text">
+    </div>
+    <div class="label-container">
+      <label>Kategorija</label>
+      <select class="field">
+        <option>v</option>
+      </select>
+    </div>
+    <div class="label-container">
+      <label>Aprašymas</label>
+      <textarea class="field"></textarea>
+    </div>
+  </form>
+  <button (click)="closeDialog()">Sukurti</button>
 </div>
