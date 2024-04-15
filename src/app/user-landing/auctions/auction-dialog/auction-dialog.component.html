@@ -1,28 +1,36 @@
 <div class="container">
   <h2>Sukurti naują aukcioną</h2>
-  <form>
+  <form [formGroup]="auctionForm">
     <label>Aukciono pabaigos data ir laikas</label>
     <br>
-    <input class="field date-field" type="date">
-    <input class="field" type="time">
+    <input class="field date-field" type="date" formControlName="date">
+    <input class="field" type="time" formControlName="time">
+    <br>
+    <span *ngIf="date?.invalid && (date?.dirty || date?.touched)" class="error-message">Data yra privalomas laukas</span>
+    <br>
+    <span *ngIf="time?.invalid && (time?.dirty || time?.touched)" class="error-message">Laikas yra privalomas laukas</span>
     <div class="label-container">
       <label>Maksimali kaina</label>
-      <input class="field" type="number">
+      <input class="field" type="number" formControlName="price">
+      <span *ngIf="price?.invalid && (price?.dirty || price?.touched)" class="error-message">Kaina yra privalomas laukas</span>
     </div>
     <div class="label-container">
       <label>Miestas</label>
-      <input class="field" type="text">
+      <input class="field" type="text" formControlName="city">
+      <span *ngIf="city?.invalid && (city?.dirty || city?.touched)" class="error-message">Miestas yra privalomas laukas</span>
     </div>
     <div class="label-container">
       <label>Kategorija</label>
-      <select class="field">
+      <select class="field" formControlName="category">
         <option>v</option>
       </select>
+      <span *ngIf="category?.invalid && (category?.dirty || category?.touched)" class="error-message">Kategorija yra privalomas laukas</span>
     </div>
     <div class="label-container">
       <label>Aprašymas</label>
-      <textarea class="field"></textarea>
+      <textarea class="field" formControlName="description"></textarea>
+      <span *ngIf="description?.invalid && (description?.dirty || description?.touched)" class="error-message">Aprašymas yra privalomas laukas</span>
     </div>
   </form>
-  <button (click)="closeDialog()">Sukurti</button>
+  <button [disabled]="!auctionForm.valid" (click)="closeDialog()">Sukurti</button>
 </div>

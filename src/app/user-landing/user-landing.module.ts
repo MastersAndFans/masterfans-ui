@@ -10,7 +10,7 @@ import { AuctionsListComponent } from './auctions/auctions-list/auctions-list.co
 import {UserLandingRoutingModule} from "./user-landing-routing.module";
 import {MatDialogModule} from "@angular/material/dialog";
 import { AuctionDialogComponent } from './auctions/auction-dialog/auction-dialog.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -28,7 +28,8 @@ import {ReactiveFormsModule} from "@angular/forms";
         CommonModule,
         UserLandingRoutingModule,
         MatDialogModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+      FormsModule
     ]
 })
 export class UserLandingModule { }

@@ -10,6 +10,7 @@
 h2{
   text-align: center;
   margin-bottom: 2rem;
+  color: #F1B32B;
 }
 
 .label-container{
@@ -47,4 +48,9 @@ button{
   border: none;
   cursor: pointer;
   margin-left: 1rem;
+}
+
+.error-message{
+  color: red;
+  font-size: 0.75rem;
 }
