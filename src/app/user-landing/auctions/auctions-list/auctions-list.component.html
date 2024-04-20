@@ -1,14 +1,14 @@
-<div class="filter-container">
+<div class="filter-container" [formGroup]="searchForm">
   <h3>15 Aukcionų</h3>
 
   <div class="search-container">
     <div class="city-search">
       <label>Paieška pagal miestą</label>
-      <input class="search" type="text" placeholder="Vilnius">
+      <input class="search" type="text" placeholder="Vilnius" formControlName="city">
     </div>
     <div class="category-search">
       <label>Paieška pagal kategoriją</label>
-      <input class="search" type="text" placeholder="Tinkavimas">
+      <input class="search" type="text" placeholder="Tinkavimas" formControlName="category">
     </div>
   </div>
 
@@ -16,13 +16,13 @@
   <div class="price-container">
     <div class="from-field">
       <label class="label-without-bold">Nuo</label>
-      <input class="search-price" type="number" placeholder="€">
+      <input class="search-price" type="number" placeholder="€" formControlName="priceFrom">
     </div>
     <div class="to-field">
       <label class="label-without-bold">Iki</label>
-      <input class="search-price" type="number" placeholder="€">
+      <input class="search-price" type="number" placeholder="€" formControlName="priceTo">
     </div>
-    <button class="search-button">Ieškoti</button>
+    <button class="search-button" (click)="search()">Ieškoti</button>
   </div>
 
 </div>
@@ -31,17 +31,16 @@
   <div class="auction">
     <div class="auction-details">
       <span class="ends-in">Baigiasi: 2024-04-20 16:20</span>
-      <span class="current-bid">Dabartinis statymas</span>
-      <span class="bid">95€</span>
       <div class="master-info">
-        <img class="profile-picture" src="assets/pp.jpg" alt="profile picture">
-        <span class="name">Matas Matas</span>
+        <span class="name"><b>Aukcioną sukūrė</b>: Matas Matas</span>
       </div>
       <span class="city"><b>Miestas</b>: Vilnius</span>
       <span class="category"><b>Kategorijos</b>: tinkavimas, plytelių klijavimas</span>
-      <div class="new-bid-container">
-        <input class="new-bid" type="number" placeholder="94€ arba mažiau">
-        <button class="bid-button">Pateikti statymą</button>
+      <span class="current-bid">Dabartinis statymas</span>
+      <span class="bid">95€</span>
+      <div class="new-bid-container" [formGroup]="bidForm">
+        <input class="new-bid" type="number" placeholder="94€ arba mažiau" formControlName="bid">
+        <button class="bid-button" (click)="bid()">Pateikti statymą</button>
       </div>
     </div>
     <div class="auction-info">
