@@ -3,16 +3,15 @@
   <form [formGroup]="auctionForm">
     <label>Aukciono pabaigos data ir laikas</label>
     <br>
-    <input class="field date-field" type="date" formControlName="date">
-    <input class="field" type="time" formControlName="time">
+    <input class="field date-field" type="datetime-local" formControlName="date">
     <br>
     <span *ngIf="date?.invalid && (date?.dirty || date?.touched)" class="error-message">Data yra privalomas laukas</span>
-    <br>
-    <span *ngIf="time?.invalid && (time?.dirty || time?.touched)" class="error-message">Laikas yra privalomas laukas</span>
+    <span *ngIf="dateNotValid" class="error-message">Įvesta netinkama data</span>
     <div class="label-container">
       <label>Maksimali kaina</label>
-      <input class="field" type="number" formControlName="price">
+      <input class="field price-field" type="number" formControlName="price">
       <span *ngIf="price?.invalid && (price?.dirty || price?.touched)" class="error-message">Kaina yra privalomas laukas</span>
+      <span *ngIf="priceNotValid" class="error-message">Maksimali kaina negali būti mažesnė už 2€</span>
     </div>
     <div class="label-container">
       <label>Miestas</label>
@@ -22,7 +21,7 @@
     <div class="label-container">
       <label>Kategorija</label>
       <select class="field" formControlName="category">
-        <option>v</option>
+        <option *ngFor="let categorie of categories" [value]="categorie.name">{{categorie.name}}</option>
       </select>
       <span *ngIf="category?.invalid && (category?.dirty || category?.touched)" class="error-message">Kategorija yra privalomas laukas</span>
     </div>

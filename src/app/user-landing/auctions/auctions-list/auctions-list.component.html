@@ -1,5 +1,5 @@
 <div class="filter-container" [formGroup]="searchForm">
-  <h3>15 Aukcionų</h3>
+  <h3 class="found-auctions">Rasta aukcionų: {{auctions.length}}</h3>
 
   <div class="search-container">
     <div class="city-search">
@@ -8,7 +8,9 @@
     </div>
     <div class="category-search">
       <label>Paieška pagal kategoriją</label>
-      <input class="search" type="text" placeholder="Tinkavimas" formControlName="category">
+      <select class="search sel" formControlName="category">
+        <option *ngFor="let category of categories" [value]="category.name">{{category.name}}</option>
+      </select>
     </div>
   </div>
 
@@ -16,38 +18,45 @@
   <div class="price-container">
     <div class="from-field">
       <label class="label-without-bold">Nuo</label>
-      <input class="search-price" type="number" placeholder="€" formControlName="priceFrom">
+      <input class="search-price" type="number" placeholder="€" formControlName="price_from">
     </div>
     <div class="to-field">
       <label class="label-without-bold">Iki</label>
-      <input class="search-price" type="number" placeholder="€" formControlName="priceTo">
+      <input class="search-price" type="number" placeholder="€" formControlName="price_to">
     </div>
     <button class="search-button" (click)="search()">Ieškoti</button>
+    <button class="filter-button" (click)="clearFilter()">Panaikinti filtraciją</button>
   </div>
 
 </div>
 
 <div class="auctions-container">
-  <div class="auction">
+  <h2 class="auctions-not-found" *ngIf="!auctions.length">Aukcionių nerasta</h2>
+  <div class="auction" *ngFor="let auction of auctions">
     <div class="auction-details">
-      <span class="ends-in">Baigiasi: 2024-04-20 16:20</span>
+      <span class="ends-in">Baigiasi: {{auction.date}}</span>
       <div class="master-info">
-        <span class="name"><b>Aukcioną sukūrė</b>: Matas Matas</span>
+        <span class="name"><b>Aukcioną sukūrė</b>: {{auction.creator_name}} {{auction.creator_surname}}</span>
       </div>
-      <span class="city"><b>Miestas</b>: Vilnius</span>
-      <span class="category"><b>Kategorijos</b>: tinkavimas, plytelių klijavimas</span>
-      <span class="current-bid">Dabartinis statymas</span>
-      <span class="bid">95€</span>
-      <div class="new-bid-container" [formGroup]="bidForm">
-        <input class="new-bid" type="number" placeholder="94€ arba mažiau" formControlName="bid">
-        <button class="bid-button" (click)="bid()">Pateikti statymą</button>
+      <span class="city"><b>Miestas</b>: {{auction.city}}</span>
+      <span class="category"><b>Kategorija</b>: {{auction.category}}</span>
+      <span class="current-bid" *ngIf="!auction.ended">Dabartinis statymas</span>
+      <span class="bid" *ngIf="!auction.ended">{{auction.price}}€</span>
+      <div class="new-bid-container" [formGroup]="bidForm" *ngIf="!auction.ended">
+        <input class="new-bid" type="number" placeholder="{{auction.price - 1}}€ arba mažiau" formControlName="bid">
+        <button class="bid-button" (click)="bid(auction)">Pateikti statymą</button>
+      </div>
+      <div class="auction-end-container" *ngIf="auction.ended">
+        <span class="auction-ended">Aukcionas baigėsi</span>
+        <span class="winner" *ngIf="auction.winner_name"><b>Laimėtojas</b>: {{auction.winner_name}} {{auction.winner_surname}}</span>
+        <span class="winner" *ngIf="!auction.winner_name">Nebuvo atlikti statymai</span>
       </div>
     </div>
     <div class="auction-info">
       <div class="vertical-line"></div>
       <div class="description">
         <h2>Darbo aprašymas</h2>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+        <p>{{auction.description}}</p>
       </div>
     </div>
   </div>

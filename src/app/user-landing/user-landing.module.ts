@@ -11,7 +11,7 @@ import {UserLandingRoutingModule} from "./user-landing-routing.module";
 import {MatDialogModule} from "@angular/material/dialog";
 import { AuctionDialogComponent } from './auctions/auction-dialog/auction-dialog.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-
+import {UserLandingService} from "./user-landing-service";
 
 @NgModule({
   declarations: [
@@ -30,6 +30,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
         MatDialogModule,
         ReactiveFormsModule,
       FormsModule
-    ]
+    ],
+  providers: [
+    UserLandingService
+  ]
 })
 export class UserLandingModule { }

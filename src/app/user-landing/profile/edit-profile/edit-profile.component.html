@@ -1,76 +1,98 @@
 <div class="container">
-  <div class="edit-profile-container">
+  <div class="edit-profile-container" [formGroup]="userForm">
       <h2>Mano profilis</h2>
       <div class="horizontal-line"></div>
     <div class="profile-picture-container">
       <span>Profilio nuotrauka</span>
       <div class="img-container">
         <img src="assets/pp.jpg">
-        <p>Keisti</p>
+<!--        <p>Keisti</p>-->
       </div>
     </div>
     <div class="horizontal-line"></div>
     <div class="names-container">
       <span>Vardas ir pavardė</span>
       <div class="names-text-container">
-      <input class="name" type="text">
-      <input type="text">
+      <input class="name" type="text" formControlName="name">
+      <input  class="surname" type="text" formControlName="surname">
+        <span *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+          <br>
+          <span *ngIf="name?.errors?.['required']" class="error-message">Vardas yra privalomas laukas</span>
+          <span *ngIf="name?.errors?.['minlength']" class="error-message">Vardas turi būti bent iš 2 simbolių</span>
+          <span *ngIf="name?.errors?.['maxlength']" class="error-message">Vardas negali viršyti 50 simbolių</span>
+        </span>
+        <span *ngIf="surname?.invalid && (surname?.dirty || surname?.touched)">
+          <br>
+          <span *ngIf="surname?.errors?.['required']" class="error-message">Pavardė yra privalomas laukas</span>
+          <span *ngIf="surname?.errors?.['minlength']" class="error-message">Pavardė turi būti bent iš 2 simbolių</span>
+          <span *ngIf="surname?.errors?.['maxlength']" class="error-message">Pavardė negali viršyti 50 simbolių</span>
+        </span>
       </div>
+    </div>
+    <div class="horizontal-line"></div>
+    <div class="birth-container">
+      <span>Gimimo data</span>
+      <input type="date" formControlName="birth_date" readonly>
+    </div>
+    <div class="horizontal-line"></div>
+    <div class="email-container">
+      <span>Elektroninis paštas</span>
+      <input type="text" formControlName="email" readonly>
     </div>
     <div class="horizontal-line"></div>
     <div class="phone-container">
       <span>Telefono numeris</span>
-      <input type="text">
+      <input type="text" formControlName="phone_number">
     </div>
     <div class="horizontal-line"></div>
-    <div class="password-container">
-      <div class="password">
-        <span>Senas slaptažodis</span>
-        <input type="password">
-      </div>
-      <div class="password">
-        <span>Naujas slaptažodis</span>
-        <input type="password">
-      </div>
-      <div class="password">
-        <span>Pakartoti naują slaptažodį</span>
-        <input type="password">
-      </div>
-    </div>
-    <div class="horizontal-line"></div>
-    <div class="services-container">
-      <span class="services-text">Paslaugos ir kainos</span>
-      <div class="service">
-        <input type="text">
-        <div class="price-container">
-          <input class="price" type="number">
-          <p class="price-per-hour">€/h</p>
-        </div>
-        <img class="close" src="assets/close.png">
-      </div>
-      <div class="service">
-        <input type="text">
-        <div class="price-container">
-          <input class="price" type="number">
-          <p class="price-per-hour">€/h</p>
-        </div>
-        <img class="close" src="assets/close.png">
-      </div>
-      <img class="add" src="assets/add.png">
-    </div>
-    <div class="horizontal-line"></div>
-    <div class="schedule-container">
-      <span class="schedule-text">Tvarkaraštis</span>
-      <div class="schedule">
-        <div class="day" *ngFor="let day of days">
-          <a>{{day}}</a>
-          <textarea class="day-input"></textarea>
-        </div>
-      </div>
-    </div>
+<!--    <div class="password-container">-->
+<!--      <div class="password">-->
+<!--        <span>Senas slaptažodis</span>-->
+<!--        <input type="password">-->
+<!--      </div>-->
+<!--      <div class="password">-->
+<!--        <span>Naujas slaptažodis</span>-->
+<!--        <input type="password">-->
+<!--      </div>-->
+<!--      <div class="password">-->
+<!--        <span>Pakartoti naują slaptažodį</span>-->
+<!--        <input type="password">-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="horizontal-line"></div>-->
+<!--    <div class="services-container">-->
+<!--      <span class="services-text">Paslaugos ir kainos</span>-->
+<!--      <div class="service">-->
+<!--        <input type="text">-->
+<!--        <div class="price-container">-->
+<!--          <input class="price" type="number">-->
+<!--          <p class="price-per-hour">€/h</p>-->
+<!--        </div>-->
+<!--        <img class="close" src="assets/close.png">-->
+<!--      </div>-->
+<!--      <div class="service">-->
+<!--        <input type="text">-->
+<!--        <div class="price-container">-->
+<!--          <input class="price" type="number">-->
+<!--          <p class="price-per-hour">€/h</p>-->
+<!--        </div>-->
+<!--        <img class="close" src="assets/close.png">-->
+<!--      </div>-->
+<!--      <img class="add" src="assets/add.png">-->
+<!--    </div>-->
+<!--    <div class="horizontal-line"></div>-->
+<!--    <div class="schedule-container">-->
+<!--      <span class="schedule-text">Tvarkaraštis</span>-->
+<!--      <div class="schedule">-->
+<!--        <div class="day" *ngFor="let day of days">-->
+<!--          <a>{{day}}</a>-->
+<!--          <textarea class="day-input"></textarea>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
     <div class="action-buttons">
       <button class="cancel" (click)="redirectToProfile(false)">Atšaukti</button>
-      <button class="save" (click)="redirectToProfile(true)">Išsaugoti</button>
+      <button class="save" (click)="redirectToProfile(true)" [disabled]="!userForm.valid">Išsaugoti</button>
     </div>
   </div>
 </div>

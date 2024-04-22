@@ -21,7 +21,10 @@ export class UserLandingComponent {
   }
   openDialog(): void{
     const dialogRef = this.dialog.open(AuctionDialogComponent, {
+    });
 
+    dialogRef.afterClosed().subscribe(() => {
+      window.location.reload();
     });
   }
 }

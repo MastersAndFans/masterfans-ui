@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
+import {AuthenticationService} from "../../../authentication/authentication-service";
+import {User} from "../../structures/User";
 
 @Component({
   selector: 'app-user-info',
@@ -7,7 +9,11 @@ import {Router} from "@angular/router";
   styleUrls: ['./user-info.component.scss']
 })
 export class UserInfoComponent {
-  constructor(private router: Router) {
+  userInfo: User | undefined;
+  constructor(private router: Router, private auth: AuthenticationService) {
+    this.auth.getUser().subscribe((result: User) => {
+      this.userInfo = result;
+    });
   }
 
   redirecToEditProfile(): void{

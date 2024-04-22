@@ -74,9 +74,21 @@ label{
   height: 35px;
   width: 75px;
   margin-top: auto;
-  margin-right: 4.5%;
+  margin-right: 1rem;
   border-radius: 5px;
   background-color: #F1B32B;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.filter-button{
+  height: 35px;
+  width: 120px;
+  border-radius: 5px;
+  margin-right: 5%;
+  margin-top: auto;
+  background-color: #990F02;
   color: #ffffff;
   border: none;
   cursor: pointer;
@@ -184,4 +196,31 @@ p{
   margin-left: 2rem;
   width: 80%;
   text-align: justify
+}
+
+.error-message{
+  color: red;
+  font-size: 0.75rem;
+  padding-left: 1rem;
+}
+
+.auction-end-container{
+  padding-left: 1rem;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.auction-ended{
+  font-size: 1.5rem;
+  color: red;
+}
+
+.winner{
+  margin-top: 2rem;
+  font-size: 1.125rem;
+}
+
+.auctions-not-found{
+  text-align: center;
 }

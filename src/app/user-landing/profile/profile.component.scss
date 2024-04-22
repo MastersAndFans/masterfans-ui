@@ -4,6 +4,10 @@
 
 header{
   height: 50px;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 body {
@@ -16,6 +20,13 @@ img{
   height: 32px;
   float: right;
   margin-right: 1rem;
-  margin-top: 1rem;
+  cursor: pointer;
+}
+
+h2{
+  color: #F1B32B;
+  font-size: 2rem;
+  margin-left: 2rem;
+  margin-right: 4rem;
   cursor: pointer;
 }

@@ -1,6 +1,6 @@
 .container{
   background-color: #FFE9D5;
-  height: auto;
+  height: 100vh;
   display: flex;
   font-family: sans-serif;
 }
@@ -25,10 +25,16 @@ h2{
   width: 100%;
 }
 
-.profile-picture-container, .names-container, .phone-container, .password-container, .services-container, .schedule-container{
+.profile-picture-container, .names-container, .phone-container, .password-container, .services-container, .schedule-container, .email-container, .birth-container{
   display: flex;
   align-items: center;
   margin-block: 1rem;
+}
+
+.error-message{
+  color: red;
+  font-size: 0.75rem;
+  margin: 0;
 }
 
 img{
@@ -137,6 +143,10 @@ a{
   font-weight: bold;
   font-size: 0.875rem;
   cursor: pointer;
+  &:disabled{
+    cursor: not-allowed;
+    background-color: #888888;
+  }
 }
 
 .save{

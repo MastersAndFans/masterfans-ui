@@ -29,7 +29,7 @@ span{
 .profile-picture{
   width: 50px;
   height: 50px;
-  margin-right: 2rem;
+  margin-inline: 2rem;
   border-radius: 5px;
 }
 
@@ -39,5 +39,39 @@ span{
 }
 
 .profile-picture, .logout{
+  cursor: pointer;
+}
+
+.search{
+  border: none;
+  background-color: #F0F1F5;
+  border-radius: 20px;
+  height: 30px;
+  width: 240px;
+  padding-left: 0.625rem;
+  position: relative;
+}
+
+li{
+  list-style-type: none;
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.search-results{
+  top: 50px;
+  position: absolute;
+  width: 250px;
+  height: auto;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.chat{
+  width: 1rem;
+  margin-left: 2rem;
   cursor: pointer;
 }

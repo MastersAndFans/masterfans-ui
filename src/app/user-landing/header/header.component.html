@@ -1,10 +1,16 @@
 <div class="container">
   <h2>MasterFans</h2>
   <span>Aukcionai</span>
-  <span>Meistrai</span>
 
   <div class="profile-container">
+    <input type="text" class="search" placeholder="Ieškoti naudotojus" [ngModel]="search" (ngModelChange)="onSearchChange($event)">
+    <div class="search-results" *ngIf="searchResults.length">
+        <li *ngFor="let result of searchResults">
+          {{ result.name }} {{ result.surname }}
+          <img class="chat" src="/assets/chat.png">
+        </li>
+    </div>
     <img class="profile-picture" src="assets/pp.jpg" alt="profile picture" (click)="redirectTo('profile')">
-    <img class="logout" src="/assets/logout-black.png" alt="logout">
+    <img class="logout" src="/assets/logout-black.png" alt="logout" (click)="logout()">
   </div>
 </div>

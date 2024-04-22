@@ -21,4 +21,8 @@ export class ProfileComponent {
     })
   }
 
+  redirectToHome(): void {
+    this.router.navigate(['/home'])
+  }
+
 }
